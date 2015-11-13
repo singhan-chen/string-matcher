@@ -6,7 +6,7 @@ echo "===================================================================="
 echo "=          WELCOME! This is the string match tool                  ="
 echo "===================================================================="
 
-SEARCH_FOLDERS_SET="./* ./script/* ./css/* ../httpd/"
+SEARCH_FOLDERS_SET="./* ./script/* ./css/* ../httpd/* ../httpd/cgi/*"
 MATCHED_STR_LOG="output.log"
 NOT_MATCHED_STR_LOG="output_unused.log"
 
