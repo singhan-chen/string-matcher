@@ -39,7 +39,7 @@ if [ $MATCHED_STR_LOG ]; then
 	echo "WARRING: $MATCHED_STR_LOG is exist, file will be overwrite.";
 	echo "Enter 'stop' to cancel this script (press enter to continue)";
 	read -r key;
-    if [ "$key" == "stop" ]; then 
+	if [ "$key" == "stop" ]; then 
 		echo "User stopped this script"
 		exit;
 	fi
@@ -50,7 +50,7 @@ if [ $NOT_MATCHED_STR_LOG ]; then
 	echo "WARRING: $NOT_MATCHED_STR_LOG is exist, file will be overwrite.";
 	echo "Enter 'stop' to cancel this script (press enter to continue)";
 	read -r key;
-    if [ "$key" == "stop" ]; then 
+	if [ "$key" == "stop" ]; then 
 		echo "User stopped this script"
 		exit;
 	fi
@@ -63,7 +63,7 @@ not_matched_cnt=0;
 start_flag='n'
 start_time=$(date -u +"%s")
 while IFS='' read -r line || [[ -n "$line" ]]; do
-    if [[ $line == $start_str_tag* ]]; then
+	if [[ $line == $start_str_tag* ]]; then
 		start_flag="y";
 	fi
 	if [[ $start_flag == "y" ]]; then
@@ -74,13 +74,12 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
 		then
 			echo -ne "\r\033[K (Searching $((matched_cnt+not_matched_cnt))) ";
 			echo -ne "[$string_tag] hit!\r";
-            echo "$line" >> $MATCHED_STR_LOG;
+			echo "$line" >> $MATCHED_STR_LOG;
 			matched_cnt=$((matched_cnt + 1));
 		else
-#			echo -ne "\r\033[K";
 			echo -ne "\r\033[K (Searching $((matched_cnt+not_matched_cnt))) ";
 			echo -ne "[$string_tag] is an unused string\r";
-            echo "$line" >> $NOT_MATCHED_STR_LOG;
+			echo "$line" >> $NOT_MATCHED_STR_LOG;
 			not_matched_cnt=$((not_matched_cnt + 1));
 		fi
 	fi
